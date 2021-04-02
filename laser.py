@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 """
+Modified by Adrien Centonze 2021, Love Open Design, love-open-design.com
 Modified by Jay Johnson 2015, J Tech Photonics, Inc., jtechphotonics.com
 modified by Adam Polak 2014, polakiumengineering.org
 
@@ -572,7 +573,7 @@ class LaserGcode(inkex.Effect):
             gcode += "G91\nG1 Z-" + self.options.pass_depth + "\nG90\n" + gcode_pass
         f = open(self.options.directory + self.options.file, "w")
         f.write(
-            self.options.laser_off_command + " S0" + "\n" + self.header +
+            self.options.plotter_off_command + " S0" + "\n" + self.header +
             "G1 F" + self.options.travel_speed + "\n" + gcode + self.footer)
         f.close()
 
@@ -613,10 +614,10 @@ class LaserGcode(inkex.Effect):
              "dest": "add_numeric_suffix_to_filename", "default": False,
              "help": "Add numeric suffix to file name"},
 
-            {"name": "--laser-command", "type": str, "dest": "laser_command",
+            {"name": "--plotter-command", "type": str, "dest": "plotter_command",
              "default": "M03", "help": "Laser gcode command"},
 
-            {"name": "--laser-off-command", "type": str, "dest": "laser_off_command",
+            {"name": "--plotter-off-command", "type": str, "dest": "plotter_off_command",
              "default": "M05", "help": "Laser gcode end command"},
 
             {"name": "--laser-speed", "type": int, "dest": "laser_speed", "default": 750,
@@ -625,7 +626,7 @@ class LaserGcode(inkex.Effect):
             {"name": "--travel-speed", "type": str, "dest": "travel_speed",
              "default": "3000", "help": "Travel speed (mm/min},"},
 
-            {"name": "--laser-power", "type": int, "dest": "laser_power", "default": 255,
+            {"name": "--plotter-active", "type": int, "dest": "plotter_active", "default": 255,
              "help": "S# is 256 or 10000 for full power"},
 
             {"name": "--passes", "type": int, "dest": "passes", "default": 1,
@@ -634,10 +635,10 @@ class LaserGcode(inkex.Effect):
             {"name": "--pass-depth", "type": str, "dest": "pass_depth", "default": 1,
              "help": "Depth of laser cut"},
 
-            {"name": "--power-delay", "type": str, "dest": "power_delay",
+            {"name": "--plotter-on-delay", "type": str, "dest": "plotter_on_delay",
              "default": "0", "help": "Laser power-on delay (ms},"},
 
-            {"name": "--power-off-delay", "type": str, "dest": "power_off_delay",
+            {"name": "--plotter-off-delay", "type": str, "dest": "plotter_off_delay",
              "default": "0", "help": "Laser power-on delay (ms},"},
 
             {"name": "--suppress-all-messages", "type": inkex.Boolean,
@@ -1448,14 +1449,15 @@ class LaserGcode(inkex.Effect):
             self.get_info()
 
         self.tools = {
-            "name": "Laser Engraver",
-            "id": "Laser Engraver",
+            # "name": "Laser Engraver",
+            "name": "LY Drawing Machin",
+            "id": "LY Drawing Machin",
             "penetration feed": self.options.laser_speed,
             "feed": self.options.laser_speed,
-            "gcode before path": ("G4 P0 \n" + self.options.laser_command + " S" + str(
-                int(self.options.laser_power)) + "\nG4 P" + self.options.power_delay),
+            "gcode before path": ("G4 P0 \n" + self.options.plotter_command + " S" + str(
+                int(self.options.plotter_active)) + "\nG4 P" + self.options.plotter_on_delay),
             "gcode after path": (
-                    "G4 P" + self.options.power_off_delay + "\n" + self.options.laser_off_command + " S0" + "\nG4 P0.25" + "\n" + "G1 F" + self.options.travel_speed),
+                    "G4 P0" + "\n" + self.options.plotter_off_command + " S0" + "\nG4 P" + self.options.plotter_off_delay + "\n" + "G1 F" + self.options.travel_speed),
         }
 
         self.get_info()

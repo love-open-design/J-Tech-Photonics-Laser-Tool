@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
-    <_name>J Tech Photonics Laser Tool</_name>
-    <id>jtechphotonics.com</id>
+    <_name>XY Plotter tool by Love Open Design</_name>
+    <id>love-open-design.com</id>
 	<dependency type="executable" location="inx">laser.py</dependency>
 	<dependency type="executable" location="extensions">inkex.py</dependency>
 
-	<param name="laser-command" type="string" _gui-text="Drawing ON Command:">M03</param>
-	<param name="laser-off-command" type="string" _gui-text="Drawing OFF Command:">M05</param>
+	<param name="plotter-command" type="string" _gui-text="Drawing ON Command:">M03</param>
+	<param name="plotter-off-command" type="string" _gui-text="Drawing OFF Command:">M05</param>
 	<param name="travel-speed" type="int" min="0" max="15000" _gui-text="Pen Up Travel Speed (mm/min or in/min):">3000</param>
 	<param name="laser-speed" type="int" min="0" max="15000" _gui-text="Pen Down Travel Speed  (mm/min or in/min):">750</param>
-	<param name="laser-power" type="int" min="0" max="20000" _gui-text="Pen Active Power S# (0-255 or 0-12000):">1000</param>
-	<param name="power-delay" type="float" min="0" max="1000" _gui-text="Pen-On Delay (ms or s):">0,2</param>
-	<param name="power-off-delay" type="float" min="0" max="1000" _gui-text="Pen-Off Delay (ms or s):">0,2</param>
+	<param name="plotter-active" type="int" min="0" max="20000" _gui-text="Pen Active Power S# (0-255 or 0-12000):">1000</param>
+	<param name="plotter-on-delay" type="float" min="0" max="1000" _gui-text="Pen-On Delay (ms or s):">0,2</param>
+	<param name="plotter-off-delay" type="float" min="0" max="1000" _gui-text="Pen-Off Delay (ms or s):">0,2</param>
 	<param name="passes" type="int" min="1" max="100" _gui-text="Passes:">1</param>
 	<param name="pass-depth" type="float" min="0" max="10" _gui-text="Pass Depth (mm or in):">1</param>
 	<param name="directory" type="string" _gui-text="Directory:"></param>
@@ -25,7 +25,7 @@
 
 	<effect>
 		<effects-menu>
-			<submenu _name="Generate Laser Gcode"/>
+			<submenu _name="Generate Gcode for XY Plotter"/>
 		</effects-menu>
 		<object-type>path</object-type>
   	</effect>
