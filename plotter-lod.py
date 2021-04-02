@@ -620,7 +620,7 @@ class LaserGcode(inkex.Effect):
             {"name": "--plotter-off-command", "type": str, "dest": "plotter_off_command",
              "default": "M05", "help": "Laser gcode end command"},
 
-            {"name": "--laser-speed", "type": int, "dest": "laser_speed", "default": 750,
+            {"name": "--plotter-speed", "type": int, "dest": "plotter_speed", "default": 750,
              "help": "Laser speed (mm/min},"},
 
             {"name": "--travel-speed", "type": str, "dest": "travel_speed",
@@ -1452,8 +1452,8 @@ class LaserGcode(inkex.Effect):
             # "name": "Laser Engraver",
             "name": "LY Drawing Machin",
             "id": "LY Drawing Machin",
-            "penetration feed": self.options.laser_speed,
-            "feed": self.options.laser_speed,
+            "penetration feed": self.options.plotter_speed,
+            "feed": self.options.plotter_speed,
             "gcode before path": ("G4 P0 \n" + self.options.plotter_command + " S" + str(
                 int(self.options.plotter_active)) + "\nG4 P" + self.options.plotter_on_delay),
             "gcode after path": (
@@ -1469,3 +1469,4 @@ if target_version < 1.0:
     e.affect()
 else:
     e.run()
+
