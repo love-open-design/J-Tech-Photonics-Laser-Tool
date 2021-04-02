@@ -2,7 +2,7 @@
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
     <_name>XY Plotter tool by Love Open Design</_name>
     <id>love-open-design.com</id>
-	<dependency type="executable" location="inx">laser.py</dependency>
+	<dependency type="executable" location="inx">plotter-lod.py</dependency>
 	<dependency type="executable" location="extensions">inkex.py</dependency>
 
 	<param name="plotter-command" type="string" _gui-text="Drawing ON Command:">M03</param>
