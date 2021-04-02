@@ -31,8 +31,7 @@
   	</effect>
 
 	<script>
-		<command reldir="inx" interpreter="python">laser.py</command>
+		<command reldir="inx" interpreter="python">plotter-lod.py</command>
 	</script>
 
 </inkscape-extension>
-
