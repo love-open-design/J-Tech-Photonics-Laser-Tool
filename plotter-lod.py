@@ -129,6 +129,7 @@ options = {}
 defaults = {
     'header': """
 G90
+G0 Z0
 """,
     'footer': """G1 X0 Y0
 
