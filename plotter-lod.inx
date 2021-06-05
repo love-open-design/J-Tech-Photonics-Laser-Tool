@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
-    <_name>XY Plotter tool by Love Open Design</_name>
+    <_name>LY Drawbot tool by Love Open Design</_name>
     <id>love-open-design.com</id>
 	<dependency type="executable" location="inx">plotter-lod.py</dependency>
 	<dependency type="executable" location="extensions">inkex.py</dependency>
@@ -25,7 +25,7 @@
 
 	<effect>
 		<effects-menu>
-			<submenu _name="Generate Gcode for XY Plotter"/>
+			<submenu _name="Generate Gcode for LY Drawbot"/>
 		</effects-menu>
 		<object-type>path</object-type>
   	</effect>
