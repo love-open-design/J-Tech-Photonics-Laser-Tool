@@ -1,4 +1,4 @@
-# XY Plotter Tool by Love Open Design
+# LY Drawbot Tool by Love Open Design
 
 This is the official repository for the XY Plotter Tool Inkscape extension.
 
