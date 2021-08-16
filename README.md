@@ -19,6 +19,18 @@ Unzip the files directly into the Inkscape user extensions folder. Inkscape list
 
 Restart Inkscape and you're done.
 
+## Usage
+
+Open your SVG file in Inkscape.
+
+Before using the extension, we need to make sure the document is setup correctly. Open File > Document Properties.
+
+Set the document's display units to mm or in. 
+
+This extension only parses the paths and ignores the rest. Therefore you need to Ctrl+A to select everything and then press Ctrl+Shift+C or choose Path-> Object to Path.
+
+Now just run the extension with wanted parameters and press Apply to export to gcode.
+
 ## Gcode Panel
 
 > Inside `Inkscape > Extension > Generate GCode for XY Plotter > XY Plotter tool from Love Open Design`
